@@ -1,4 +1,5 @@
 # Instalasi Kubernetes Cluster dengan kubeadm
+## Note : Baca setiap langkah dengan seksama, semua perintah dapat langsung disalin dan dijalankan pada server tanpa perlu copy satu per satu tiap perintah
 Menggunakan OS __Ubuntu 20.04 LTS__.
 
 Settting Cluster dengan satu Master dan satu Worker Node
