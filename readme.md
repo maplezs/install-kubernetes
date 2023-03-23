@@ -62,41 +62,43 @@ systemctl restart containerd
 
 ## Eksekusi command ini pada Master VM
 ##### Initialize Kubernetes Cluster
-Update the below command with the ip address of kmaster
-### ISI IP VM DENGAN BENAR!
+### ISI DENGAN IP VM MASTER!
 ```
 kubeadm init --apiserver-advertise-address=<ip_VM> --pod-network-cidr=10.244.0.0/16  --ignore-preflight-errors=all
+```
+
+### LOGOUT DARI USER ROOT
+```
+exit
+```
+#### Jalankan command berikut agar dapat menjalankan Kubectl saat menggunakan user non-root
+```
+mkdir -p $HOME/.kube; sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config; sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 ##### Deploy Flannel Network 
 ```
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
-
-##### Cluster join command
+### Tunggu dan Pastikan Node pada keadaan Ready!
+##### Jalankan Command berikut lalu copy output yang dihasilkan!
 ```
 kubeadm token create --print-join-command
 ```
 
-##### To be able to run kubectl commands as non-root user
-If you want to be able to run kubectl commands as non-root user, then as a non-root user perform these
-```
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
 
-## On Kworker
-##### Join the cluster
-Use the output from __kubeadm token create__ command in previous step from the master server and run here.
+## Jalankan Pada VM Worker
+#### Join sebagai Node Worker
+Output __kubeadm token create__ yang telah disalin sebelumnya, paste dan jalankan pada VM Worker
+### Pastikan Muncul Seperti Berikut 
 
-## Verifying the cluster (On kmaster)
-##### Get Nodes status
+## Jalankan Pada VM Master
+##### Cek status dari semua Node, tunggu sampai semuanya dalam keadaan Ready
 ```
 kubectl get nodes
 ```
-##### Get component status
+##### Pastikan Semua Komponen dalam keadaan Healthy
 ```
 kubectl get cs
 ```
 
-Have Fun!!
+Written & tested by [RNI](https://github.com/maplezs)
