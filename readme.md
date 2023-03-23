@@ -27,22 +27,37 @@ swapoff -a; sed -i '/swap/d' /etc/fstab
 ##### Update sysctl settings for Kubernetes networking
 ```
 cat >>/etc/sysctl.d/kubernetes.conf<<EOF
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
 ```
+```
+modprobe overlay && modprobe br_netfilter
+```
 ### Kubernetes Setup
-##### Add Apt repository
+##### Add Apt repository for Kubernetes Components
 ```
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && add-apt-repository "deb https://apt.kubernetes.io/ kubernetes-xenial main"
 ```
-##### Install Kubernetes components
+##### Add Apt Repository Containerd
 ```
-apt install -y kubelet=1.25.6-00 kubeadm=1.25.6-00 kubectl=1.25.6-00
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+##### Install Kubernetes components & Containerd
+```
+apt install -y kubelet=1.25.6-00 kubeadm=1.25.6-00 kubectl=1.25.6-00 containerd.io
+```
+##### Misc Setup for Containerd
+```
+mkdir -p /etc/containerd && containerd config default>/etc/containerd/config.toml
+```
+```
+systemctl restart containerd
 ```
 
-## On kmaster
+## Eksekusi command ini pada Master VM
 ##### Initialize Kubernetes Cluster
 Update the below command with the ip address of kmaster
 ### ISI IP VM DENGAN BENAR!
