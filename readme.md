@@ -1,7 +1,7 @@
-# Install Kubernetes Cluster using kubeadm
-Follow this documentation to set up a Kubernetes cluster on __Ubuntu 20.04 LTS__.
+# Instalasi Kubernetes Cluster dengan kubeadm
+Menggunakan OS __Ubuntu 20.04 LTS__.
 
-This documentation guides you in setting up a cluster with one master node and one worker node.
+Settting Cluster dengan satu Master dan satu Worker Node
 
 ## Assumptions
 |Role|FQDN|IP|OS|RAM|CPU|
@@ -9,7 +9,7 @@ This documentation guides you in setting up a cluster with one master node and o
 |Master|kmaster.example.com|172.16.16.100|Ubuntu 20.04|2G|2|
 |Worker|kworker.example.com|172.16.16.101|Ubuntu 20.04|1G|1|
 
-## On both Kmaster and Kworker
+## Eksekusi command ini pada Master dan Worker
 ##### Login as `root` user
 ```
 sudo su -
