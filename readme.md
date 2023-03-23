@@ -39,7 +39,7 @@ sysctl --system
 ```
 ##### Install Kubernetes components
 ```
-sudo apt update && sudo apt-get install -y kubelet kubeadm kubectl
+apt install -y kubelet=1.25.6-00 kubeadm=1.25.6-00 kubectl=1.25.6-00
 ```
 
 ## On kmaster
