@@ -43,16 +43,6 @@ sysctl --system
 ```
 sudo apt update && sudo apt-get install -y kubelet kubeadm kubectl
 ```
-##### In case you are using LXC containers for Kubernetes nodes
-Hack required to provision K8s v1.15+ in LXC containers
-```
-{
-  mknod /dev/kmsg c 1 11
-  echo '#!/bin/sh -e' >> /etc/rc.local
-  echo 'mknod /dev/kmsg c 1 11' >> /etc/rc.local
-  chmod +x /etc/rc.local
-}
-```
 
 ## On kmaster
 ##### Initialize Kubernetes Cluster
