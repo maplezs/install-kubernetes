@@ -48,12 +48,13 @@ sudo apt update && sudo apt-get install -y kubelet kubeadm kubectl
 ## On kmaster
 ##### Initialize Kubernetes Cluster
 Update the below command with the ip address of kmaster
+### ISI IP VM DENGAN BENAR!
 ```
-kubeadm init --apiserver-advertise-address=172.16.16.100 --pod-network-cidr=192.168.0.0/16  --ignore-preflight-errors=all
+kubeadm init --apiserver-advertise-address=<ip_VM> --pod-network-cidr=10.244.0.0/16  --ignore-preflight-errors=all
 ```
-##### Deploy Calico network
+##### Deploy Flannel Network 
 ```
-kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
 
 ##### Cluster join command
