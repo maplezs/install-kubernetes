@@ -33,6 +33,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 EOF
 sysctl --system
 ```
+
 ```
 modprobe overlay && modprobe br_netfilter
 ```
@@ -53,6 +54,7 @@ apt install -y kubelet=1.25.6-00 kubeadm=1.25.6-00 kubectl=1.25.6-00 containerd.
 ```
 mkdir -p /etc/containerd && containerd config default>/etc/containerd/config.toml
 ```
+
 ```
 systemctl restart containerd
 ```
