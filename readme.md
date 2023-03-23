@@ -15,7 +15,7 @@ Pastikan Master dan Worker Berada dalam satu Network (gunakan NAT Network jika m
 ```
 sudo su -
 ```
-Perform all the commands as root user unless otherwise specified
+### EKSEKUSI SEMUA PERINTAH DENGAN USER ROOT KECUALI DITENTUKAN DENGAN USER NON-ROOT!
 ##### Disable Firewall
 ```
 ufw disable
