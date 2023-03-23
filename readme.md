@@ -8,7 +8,7 @@ Pastikan Master dan Worker Berada dalam satu Network (gunakan NAT Network jika m
 |Role|IP|OS|RAM|CPU|
 |----|----|----|----|----|
 |Master|<ip_VM>|Ubuntu 20.04|2G|2|
-|Worker|<ip_VM>|Ubuntu 20.04|1G|1|
+|Worker|<ip_VM>|Ubuntu 20.04|1G/2G|1/2|
 
 ## Eksekusi command ini pada Master dan Worker
 ##### Login as `root` user
