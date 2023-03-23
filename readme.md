@@ -4,7 +4,7 @@ Menggunakan OS __Ubuntu 20.04 LTS__.
 Settting Cluster dengan satu Master dan satu Worker Node
 Pastikan Master dan Worker Berada dalam satu Network (gunakan NAT Network jika menggunakan VirtualBox)
 
-## Assumptions
+## Tabel Spesifikasi VM Master dan Worker
 |Role|IP|OS|RAM|CPU|
 |----|----|----|----|----|
 |Master|<ip_VM>|Ubuntu 20.04|2G|2|
