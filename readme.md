@@ -2,12 +2,13 @@
 Menggunakan OS __Ubuntu 20.04 LTS__.
 
 Settting Cluster dengan satu Master dan satu Worker Node
+Pastikan Master dan Worker Berada dalam satu Network (gunakan NAT Network jika menggunakan VirtualBox)
 
 ## Assumptions
 |Role|FQDN|IP|OS|RAM|CPU|
 |----|----|----|----|----|----|
-|Master|kmaster.example.com|172.16.16.100|Ubuntu 20.04|2G|2|
-|Worker|kworker.example.com|172.16.16.101|Ubuntu 20.04|1G|1|
+|Master|kmaster.example.com|<ip_VM>|Ubuntu 20.04|2G|2|
+|Worker|kworker.example.com|<ip_VM>|Ubuntu 20.04|1G|1|
 
 ## Eksekusi command ini pada Master dan Worker
 ##### Login as `root` user
