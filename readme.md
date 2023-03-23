@@ -80,7 +80,7 @@ mkdir -p $HOME/.kube; sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config; 
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
 ### Tunggu dan Pastikan Node pada keadaan Ready!
-![This is an image](assets/master_ready.png)
+![This is an image](assets/master_success.png)
 ##### Jalankan Command berikut lalu copy output yang dihasilkan!
 ```
 kubeadm token create --print-join-command
@@ -91,7 +91,7 @@ kubeadm token create --print-join-command
 #### Join sebagai Node Worker
 Output __kubeadm token create__ yang telah disalin sebelumnya, paste dan jalankan pada VM Worker
 ### Pastikan Muncul Seperti Berikut 
-![This is an image](assets/worker_ready.png)
+![This is an image](assets/worker_success.png)
 ## Jalankan Pada VM Master
 ##### Cek status dari semua Node, tunggu sampai semuanya dalam keadaan Ready
 ```
